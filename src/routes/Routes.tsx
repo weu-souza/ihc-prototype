@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import { ProductsBag } from "@/page/ProductsBag";
 import { ProductsFeed } from "@/page/ProductsFeed";
 import { RegisterProducts } from "@/page/RegisterProducts";
@@ -9,7 +9,8 @@ import { App } from "@/App";
 import ProtectedRoutes from "./protectedRoutes";
 import { GlobalStorage } from "@/context/Search.context";
 
-export const router = createBrowserRouter([
+
+export const router = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -47,5 +48,8 @@ export const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-],
-{basename:"/ihc-prototype/"});
+]);
+//se for usar o createBrowserRouter precisa disso para funcionar o deploy no github pages porem quando atualiza da erro de
+// 404, porem com o hashrouter não tem esse problema e não precisa tambem do basename
+// no package.json tem que estar assim se for browser router =  "homepage": "https://seu-nome-github.github.io/" e ter o {basename:"/repositorio-nome/"} nas rotas
+// com o createHashRouter tem que ta assim  "homepage": "https://seu-nome-github.github.io/repositorio-nome" e sem o basename no hashRouter
