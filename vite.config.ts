@@ -10,5 +10,6 @@ export default defineConfig({
     },
   },
   build: { chunkSizeWarningLimit: 1600, },
-  base: "/ihc-prototype" 
+  base: "/ihc-prototype/" 
 });
+// ihc-prototype
