@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0; URL='/ihc-prototype'" />
-    <title>Page Not Found</title>
+    <title>404 - Página Não Encontrada</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var previousPage = sessionStorage.getItem('previousPage');
+            if (previousPage) {
+                window.location.href = previousPage;
+            } else {
+                window.location.href = '/meu-repositorio'; // Redireciona para a página inicial se não houver URL anterior
+            }
+        }
+    </script>
 </head>
 <body>
-    <p>Redirecting to <a href="/ihc-prototype">home</a>...</p>
+    <h1>404 - Página Não Encontrada</h1>
+    <p>Desculpe, a página que você está procurando não foi encontrada. Redirecionando...</p>
 </body>
 </html>
